@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Hexacore * Cloud Solutions</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        img {
+            max-width: 529px;
+            max-height: 345px;
+            width: auto;
+            height: auto;
+        }
+    body,td,th {
+    color: #E7E7E7;
+    font-family: Lato, "Lato Light", "Lato Semibold";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bolder;
+}
+    </style>
+</head>
+<body>
+<script>
+function countdown() {
+  // Fecha objetivo
+  const countDownDate = new Date("October 1, 2024 00:00:00").getTime();
+
+  // fecha y hora en ms
+  const now = new Date().getTime();
+
+  // diferencia en ms
+  const distance = countDownDate - now;
+
+  // Mostrar resultado en ms
+  document.getElementById("countdown").innerHTML = distance + "#";
+
+  // Contador a cero, acción personalizada
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "¡This is the End!";
+  }
+}
+// Ejecutar función cada ms<br>
+var x = setInterval(countdown, 1);
+</script>
+    <table>
+        <tr>
+            <td nowrap="nowrap" bgcolor="#222222"><p><img src="main/logo.png" width="4000" height="4000" alt=""/></p>
+<p id="countdown"></p>
+</td>
+      </tr>
+    </table>
+</body>
+</html>
