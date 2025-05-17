@@ -56,40 +56,5 @@
         </tr>
     </table>
 
-<script>
-function countdown() {
-    // Fecha objetivo
-    const countDownDate = new Date("February 1, 2025 00:00:00").getTime();
-    // Fecha y hora actual en ms
-    const now = new Date().getTime();
-    // Diferencia en ms
-    const distance = countDownDate - now;
-
-    // Init animation in zero
-    if (distance < 0) {
-        clearInterval(x);
-        typeWriter("www.hexacore.com.ar", "countdown", 100);
-    }
-}
-
-// Write effect
-function typeWriter(text, elementId, speed) {
-    let i = 0;
-    let element = document.getElementById(elementId);
-    element.innerHTML = ""; // Empty shield before begin
-
-    function writeChar() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(writeChar, speed);
-        }
-    }
-    writeChar();
-}
-
-// Ejecutar función cada ms
-var x = setInterval(countdown, 1);
-</script>
 </body>
 </html>
