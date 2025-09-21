@@ -5,22 +5,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const logo = document.querySelector('.logo');
 
     // Estado inicial oculto
-    menu.classList.remove('visible');
-    bottomBar.classList.remove('visible');
+    menu.style.opacity = '0';
+    menu.style.transform = 'translateY(-10px)';
+    bottomBar.style.opacity = '0';
+    bottomBar.style.transform = 'translateY(10px)';
+    bottomBar.style.pointerEvents = 'none';
 
-    // Click o teclado en la flecha
+    const showUI = () => {
+        menu.style.opacity = '1';
+        menu.style.transform = 'translateY(0)';
+        bottomBar.style.opacity = '1';
+        bottomBar.style.transform = 'translateY(0)';
+        bottomBar.style.pointerEvents = 'auto';
+    };
+
+    const hideUI = () => {
+        menu.style.opacity = '0';
+        menu.style.transform = 'translateY(-10px)';
+        bottomBar.style.opacity = '0';
+        bottomBar.style.transform = 'translateY(10px)';
+        bottomBar.style.pointerEvents = 'none';
+    };
+
+    // Click o teclado en flecha
     if (arrow) {
-        const showUI = () => {
+        const scrollToContent = () => {
             window.scrollTo({ top: logo.offsetHeight, behavior: 'smooth' });
-            menu.classList.add('visible');
-            bottomBar.classList.add('visible');
+            showUI();
         };
-        arrow.addEventListener('click', showUI);
+        arrow.addEventListener('click', scrollToContent);
         arrow.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if(e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                showUI();
+                scrollToContent();
             }
         });
     }
+
+    // Mostrar/desaparecer UI según scroll
+    window.addEventListener('scroll', () => {
+        // Desaparecer solo si estamos completamente arriba del logo
+        if (window.scrollY <= 10) { 
+            hideUI();
+        } else {
+            showUI();
+        }
+    });
 });
