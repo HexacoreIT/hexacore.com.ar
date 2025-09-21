@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Hexacore | Soluciones IT</title>
+<link rel="icon" href="hexacore.png" type="image/png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Cargar Font Awesome para iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        background-color: #202020;
+        color: #E7E7E7;
+        font-family: Lato, "Lato Light", "Lato Semibold", sans-serif;
+        font-size: 18px;
+        font-weight: bolder;
+        scroll-behavior: smooth;
+    }
+
+    /* Logo */
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .logo img {
+        width: 50%;
+        max-width: 600px;
+        min-width: 200px;
+        height: auto;
+        opacity: 0;
+        animation: fadeIn 1.8s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.5); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Flecha */
+    .arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.5rem;
+        color: #E7E7E7;
+        cursor: pointer;
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* Menú */
+    nav {
+        position: sticky;
+        top: 0;
+        background-color: #202020;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1000;
+    }
+
+    nav a {
+        background-color: #2a2a2a;
+        color: #E7E7E7;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 30px;
+        transition: background 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #ff0000; /* rojo Hexacore */
+    }
+
+    /* Secciones */
+    section {
+        padding: 80px 20px;
+        min-height: 100vh;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+        background-color: #202020;
+        height: 50px; /* 30px + 20px extra */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .bottom-bar a {
+        color: #E7E7E7;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+    }
+
+    .bottom-bar a:hover {
+        color: #ff0000; /* rojo Hexacore */
+    }
+</style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="hexacore.png" alt="Hexacore Logo">
+    </div>
+
+    <!-- Flecha -->
+    <div class="arrow" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
+    <!-- Menú -->
+    <nav id="menu">
+        <a href="#section1">Inicio</a>
+        <a href="#section2">Servicios</a>
+        <a href="#section3">Proyectos</a>
+        <a href="#section4">Clientes</a>
+        <a href="#section5">Contacto</a>
+    </nav>
+
+    <!-- Secciones -->
+    <section id="section1"><h2>Inicio</h2><p>Contenido de inicio...</p></section>
+    <section id="section2"><h2>Servicios</h2><p>Contenido de servicios...</p></section>
+    <section id="section3"><h2>Proyectos</h2><p>Contenido de proyectos...</p></section>
+    <section id="section4"><h2>Clientes</h2><p>Contenido de clientes...</p></section>
+    <section id="section5"><h2>Contacto</h2><p>Contenido de contacto...</p></section>
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:correo@hexacore.com"><i class="fas fa-envelope"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+</body>
+</html>
