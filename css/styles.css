@@ -1,86 +1,188 @@
-/* Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ===================== Reset ===================== */
+/* Eliminar márgenes y paddings por defecto, y usar box-sizing border-box */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* ===================== HTML y Body ===================== */
+/* Altura completa, fuente global, color de texto y fondo, scroll suave */
 html, body {
     height: 100%;
     font-family: Lato,"Lato Light","Lato Semibold",sans-serif;
     color: #E7E7E7;
     background-color: #202020;
     scroll-behavior: smooth;
-    padding-bottom: 70px;
+    padding-bottom: 70px; /* espacio para que la bottom bar no tape contenido */
 }
 
-/* Logo */
-.logo { display: flex; justify-content: center; align-items: center; height: 100vh; position: relative; }
-.logo img { width: 50%; max-width: 300px; min-width: 200px; height: auto; opacity: 0; animation: fadeIn 1.8s ease-in-out forwards; }
-@keyframes fadeIn { from { opacity:0; transform:scale(0.5); } to { opacity:1; transform:scale(1); } }
+/* ===================== Logo ===================== */
+/* Contenedor centrado vertical y horizontal con altura de la pantalla */
+.logo { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    position: relative; 
+}
 
-/* Flecha */
+/* Imagen del logo con tamaño máximo y mínimo, animación de aparición */
+.logo img { 
+    width: 50%; 
+    max-width: 300px; 
+    min-width: 200px; 
+    height: auto; 
+    opacity: 0; /* empieza invisible */
+    animation: fadeIn 1.8s ease-in-out forwards; /* animación de aparición */
+}
+
+/* Animación para el logo */
+@keyframes fadeIn { 
+    from { opacity:0; transform:scale(0.5); } /* inicio pequeño e invisible */
+    to { opacity:1; transform:scale(1); }   /* final visible y tamaño normal */
+}
+
+/* ===================== Flecha de scroll ===================== */
+/* Botón de flecha centrado horizontalmente y a 160px desde el bottom del logo */
 .arrow {
     position: absolute;
     bottom: 160px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5rem;
-    color: #E7E7E7;
-    background: transparent;
-    border: none;
+    color: #E7E7E7; /* color del ícono */
+    background: transparent; /* sin fondo */
+    border: none; /* sin borde */
     cursor: pointer;
-    animation: bounce 1.5s infinite;
+    animation: bounce 1.5s infinite; /* animación de rebote */
 }
-@keyframes bounce { 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(-10px); } }
 
-/* Menú */
+/* Animación de rebote de la flecha */
+@keyframes bounce { 
+    0%,100%{ transform:translateX(-50%) translateY(0); } /* posición normal */
+    50%{ transform:translateX(-50%) translateY(-10px); } /* sube 10px a la mitad */
+}
+
+/* ===================== Menú ===================== */
+/* Barra de navegación fija arriba, centrada horizontalmente, inicialmente oculta */
 nav#menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #202020;
+    background-color: #2f2f2f;
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 15px 0;
-    z-index: 1000;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
+    z-index: 1000; /* siempre encima del contenido */
+    opacity: 0; /* inicialmente invisible */
+    transform: translateY(-10px); /* pequeño desplazamiento para animación */
+    transition: opacity 0.45s ease, transform 0.45s ease; /* efecto sutil */
 }
-nav#menu a { background-color:#2a2a2a; color:#E7E7E7; text-decoration:none; padding:12px 24px; border-radius:30px; transition:background 0.3s; }
-nav#menu a:hover { background-color:#ff0000; }
 
-/* Secciones */
-section { max-width:1000px; margin:0 auto; padding:80px 20px; text-align:left; }
-section h2 { font-size:2rem; text-align:left; margin-bottom:20px; }
+/* Estilo de los links del menú */
+nav#menu a { 
+    background-color:#323232; 
+    color:#E7E7E7; 
+    text-decoration:none; 
+    padding:12px 24px; 
+    border-radius:30px; 
+    transition:background 0.3s; /* cambio de color suave al hover */
+}
 
-/* Bottom Bar */
+/* Hover del menú: cambia color de fondo */
+nav#menu a:hover { 
+    background-color:#ff0000; 
+}
+
+/* ===================== Secciones ===================== */
+/* Limitar ancho máximo de contenido y centrar */
+section { 
+    max-width:1000px; 
+    margin:0 auto; 
+    padding:400px 20px; /* espacio vertical y horizontal */
+    text-align:left; 
+}
+
+/* Estilo de títulos dentro de las secciones */
+section h2 { 
+    font-size:2rem; 
+    text-align:left; 
+    margin-bottom:20px; 
+}
+
+/* ===================== Bottom Bar ===================== */
+/* Barra fija inferior, inicialmente invisible, centrada */
 .bottom-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #202020;
+    background: #323232;
     z-index: 1000;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    pointer-events: none;
+    opacity: 0; /* empieza oculta */
+    transform: translateY(10px); /* desplazamiento para animación */
+    transition: opacity 0.45s ease, transform 0.45s ease; /* transición suave */
+    pointer-events: none; /* no clickeable cuando invisible */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 0;
 }
-.bottom-bar .container { width:100%; max-width:1000px; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:0 20px; margin:0 auto; }
-.bottom-bar .text { font-size:0.9rem; color:#E7E7E7; white-space:nowrap; }
-.bottom-bar .icons { display:flex; gap:18px; align-items:center; }
-.bottom-bar .icons a { color:#E7E7E7; font-size:1.4rem; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; transition: color 0.25s ease, transform 0.12s ease; }
-.bottom-bar .icons a:hover { transform: scale(1.06); }
+
+/* Contenedor interno para limitar ancho y separar contenido */
+.bottom-bar .container { 
+    width:100%; 
+    max-width:600px; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    gap:20px; 
+    padding:0 20px; 
+    margin:0 auto; 
+}
+
+/* Texto de derechos reservados */
+.bottom-bar .text { 
+    font-size:0.9rem; 
+    color:#E7E7E7; 
+    white-space:nowrap; 
+}
+
+/* Contenedor de íconos */
+.bottom-bar .icons { 
+    display:flex; 
+    gap:18px; 
+    align-items:center; 
+}
+
+/* Estilo general de cada ícono */
+.bottom-bar .icons a { 
+    color:#E7E7E7; 
+    font-size:1.4rem; 
+    text-decoration:none; 
+    display:inline-flex; 
+    align-items:center; 
+    justify-content:center; 
+    transition: color 0.25s ease, transform 0.12s ease; /* hover suave */
+}
+
+/* Animación de hover de íconos */
+.bottom-bar .icons a:hover { 
+    transform: scale(1.30); 
+}
+
+/* Colores individuales al hacer hover */
 .bottom-bar .icons a.whatsapp:hover { color: #25D366; }
-.bottom-bar .icons a.mail:hover { color: #FF0000; }
+.bottom-bar .icons a.mail:hover { color: #ffcbcb; }
 .bottom-bar .icons a.instagram:hover { color: #E1306C; }
 .bottom-bar .icons a.facebook:hover { color: #1877F2; }
 
-/* Responsive */
+/* ===================== Responsive ===================== */
+/* Ajustes para pantallas pequeñas */
 @media(max-width:600px){
-    .logo img{ width:70%; }
-    nav#menu a{ padding:8px 14px; font-size:16px; }
+    .logo img{ width:70%; } /* logo más chico */
+    nav#menu a{ padding:8px 14px; font-size:16px; } /* menú más compacto */
 }
