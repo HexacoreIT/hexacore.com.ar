@@ -12,7 +12,7 @@ html, body {
     height: 100%;
     font-family: Lato,"Lato Light","Lato Semibold",sans-serif;
     color: #E7E7E7;
-    background-color: #202020;
+    background-color: #25D366;
     scroll-behavior: smooth;
     padding-bottom: 70px; /* espacio para que la bottom bar no tape contenido */
 }
@@ -109,9 +109,9 @@ nav#menu .menu-logo a {
 /* ===================== Secciones ===================== */
 /* Limitar ancho máximo de contenido y centrar */
 section { 
-    max-width:800px; 
+    max-width:960px; 
     margin:0 auto; 
-    padding:400px 20px; /* espacio vertical y horizontal */
+    padding:240px 20px; /* espacio vertical y horizontal */
     text-align:left; 
 }
 
@@ -120,6 +120,31 @@ section h2 {
     font-size:2rem; 
     text-align:left; 
     margin-bottom:20px; 
+}
+
+/* Sección Inicio */
+#section1 { 
+    background-color: #333333;
+}
+
+/* Sección Nosotros */
+#section2 { 
+    background-color: #222222; 
+}
+
+/* Sección Servicios */
+#section3 { 
+    background-color: #333333;
+}
+
+/* Sección Proyectos */
+#section4 { 
+    background-color: #222222; 
+}
+
+/* Sección Contacto */
+#section5 { 
+    background-color: #333333; 
 }
 
 /* ===================== Bottom Bar ===================== */
