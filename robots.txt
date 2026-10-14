@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hexacore.com.ar/sitemap.xml
