@@ -15,14 +15,74 @@
       justify-content: center;
       min-height: 100vh;
     }
-    img {
-      width: min(40vmin, 220px);
+    .hero-svg {
+      width: min(60vmin, 340px);
       height: auto;
       display: block;
+      animation: hero-breathe 5s ease-in-out infinite;
+    }
+    @keyframes hero-breathe {
+      0%, 100% { filter: drop-shadow(0 0 45px rgba(188, 193, 205, 0.35)); }
+      50% { filter: drop-shadow(0 0 75px rgba(188, 193, 205, 0.55)); }
+    }
+    .glitch-layer { opacity: 0; pointer-events: none; }
+    .glitch-layer--r { animation: glitch-r 2.8s infinite; }
+    .glitch-layer--c { animation: glitch-c 3.7s infinite; }
+    @keyframes glitch-r {
+      0%, 28.9%, 32.1%, 90.9%, 93.1%, 100% { opacity: 0; transform: translate(0, 0) skewX(0); clip-path: inset(0 0 0 0); }
+      29% { opacity: 1; transform: translate(-12px, 4px) skewX(-2deg); clip-path: inset(5% 0 70% 0); }
+      30% { opacity: 1; transform: translate(11px, -3px); clip-path: inset(60% 0 10% 0); }
+      31% { opacity: 1; transform: translate(-7px, 2px) skewX(2deg); clip-path: inset(25% 0 50% 0); }
+      32% { opacity: 1; transform: translate(6px, 0); clip-path: inset(75% 0 5% 0); }
+      91% { opacity: 1; transform: translate(-11px, 3px); clip-path: inset(12% 0 62% 0); }
+      92% { opacity: 1; transform: translate(10px, -3px) skewX(-2deg); clip-path: inset(55% 0 10% 0); }
+      93% { opacity: 1; transform: translate(-7px, 1px); clip-path: inset(35% 0 40% 0); }
+    }
+    @keyframes glitch-c {
+      0%, 43.9%, 47.1%, 88.9%, 91.1%, 100% { opacity: 0; transform: translate(0, 0) skewX(0); clip-path: inset(0 0 0 0); }
+      44% { opacity: 1; transform: translate(11px, 3px); clip-path: inset(68% 0 6% 0); }
+      45% { opacity: 1; transform: translate(-11px, -3px) skewX(2deg); clip-path: inset(6% 0 72% 0); }
+      46% { opacity: 1; transform: translate(7px, 0); clip-path: inset(45% 0 30% 0); }
+      47% { opacity: 1; transform: translate(-6px, 3px); clip-path: inset(20% 0 58% 0); }
+      89% { opacity: 1; transform: translate(10px, 2px) skewX(-2deg); clip-path: inset(62% 0 8% 0); }
+      90% { opacity: 1; transform: translate(-10px, -3px); clip-path: inset(8% 0 70% 0); }
+      91% { opacity: 1; transform: translate(6px, 1px); clip-path: inset(40% 0 35% 0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-svg, .glitch-layer { animation: none; }
     }
   </style>
 </head>
 <body>
-  <img src="./img/logo.svg" alt="Hexacore" />
+  <svg class="hero-svg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hexacore">
+    <circle cx="225" cy="225" r="180" fill="#0e1728" />
+    <image href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" />
+    <image class="glitch-layer glitch-layer--r" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchR)" aria-hidden="true" />
+    <image class="glitch-layer glitch-layer--c" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchC)" aria-hidden="true" />
+    <defs>
+      <filter id="glitchR" x="-20%" y="-20%" width="140%" height="140%">
+        <feFlood flood-color="#ff2a2a" result="f" />
+        <feComposite in="f" in2="SourceGraphic" operator="in" />
+      </filter>
+      <filter id="glitchC" x="-20%" y="-20%" width="140%" height="140%">
+        <feFlood flood-color="#00e5ff" result="f" />
+        <feComposite in="f" in2="SourceGraphic" operator="in" />
+      </filter>
+    </defs>
+  </svg>
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var layers = Array.prototype.slice.call(document.querySelectorAll('.glitch-layer'));
+      function retime() {
+        layers.forEach(function (layer) {
+          layer.style.animationDuration = (0.9 + Math.random() * 3).toFixed(2) + 's';
+          layer.style.animationDelay = (-Math.random() * 4).toFixed(2) + 's';
+        });
+        setTimeout(retime, 1500 + Math.random() * 2500);
+      }
+      retime();
+    })();
+  </script>
 </body>
 </html>
