@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto por WhatsApp | Hexacore</title>
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/svg+xml" href="./img/logo.svg" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    .demo-wrap { max-width: 720px; margin: 0 auto; padding: 48px 5vw 96px; }
+    .demo-wrap .brand { display: inline-flex; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <main class="demo-wrap">
+    <a href="./index2.html" class="brand" aria-label="Hexacore">
+      <img src="./img/logo.svg" alt="Hexacore Logo" class="brand__logo" width="72" height="72" />
+    </a>
+
+    <form class="contact-form quiz-form" id="contact-form" novalidate aria-label="Consulta en 3 pasos">
+      <p class="quiz-progress" aria-live="polite"><span id="quiz-step-label">Paso 1 de 3</span></p>
+      <ol class="quiz-dots" aria-hidden="true">
+        <li class="is-current" data-step-dot="1"></li>
+        <li data-step-dot="2"></li>
+        <li data-step-dot="3"></li>
+      </ol>
+
+      <div class="form-step is-active" data-step="1">
+        <h3 class="quiz-question">¿Qué necesitás?</h3>
+        <div class="quiz-options" role="radiogroup" aria-label="Servicio">
+          <label class="quiz-option"><input type="radio" name="servicio" value="Infraestructura" /><span>Infraestructura</span></label>
+          <label class="quiz-option"><input type="radio" name="servicio" value="Seguridad" /><span>Seguridad</span></label>
+          <label class="quiz-option"><input type="radio" name="servicio" value="Cloud" /><span>Cloud</span></label>
+          <label class="quiz-option"><input type="radio" name="servicio" value="Soporte Técnico" /><span>Soporte Técnico</span></label>
+          <label class="quiz-option"><input type="radio" name="servicio" value="Redes" /><span>Redes</span></label>
+          <label class="quiz-option"><input type="radio" name="servicio" value="Bases de Datos" /><span>Bases de Datos</span></label>
+        </div>
+      </div>
+
+      <div class="form-step" data-step="2" hidden>
+        <h3 class="quiz-question">¿De cuántos equipos hablamos?</h3>
+        <div class="quiz-options" role="radiogroup" aria-label="Tamaño">
+          <label class="quiz-option"><input type="radio" name="tamano" value="1 a 10" /><span>1 a 10</span></label>
+          <label class="quiz-option"><input type="radio" name="tamano" value="11 a 50" /><span>11 a 50</span></label>
+          <label class="quiz-option"><input type="radio" name="tamano" value="Más de 50" /><span>Más de 50</span></label>
+        </div>
+        <button class="quiz-back" type="button" data-back>Atrás</button>
+      </div>
+
+      <div class="form-step" data-step="3" hidden>
+        <h3 class="quiz-question">¿Cómo te contactamos?</h3>
+        <div class="form-field">
+          <label for="f-tel">WhatsApp</label>
+          <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 2345-6789" />
+        </div>
+        <div class="form-field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
+        </div>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <button class="button button--primary button--full" type="submit" id="form-submit">Enviar por WhatsApp</button>
+        <button class="quiz-back" type="button" data-back>Atrás</button>
+      </div>
+
+      <div class="form-step" data-step="4" hidden>
+        <div class="quiz-success">
+          <span class="quiz-success__icon" aria-hidden="true">✓</span>
+          <h3 class="quiz-question">¡Listo!</h3>
+          <p>Se abrió tu WhatsApp con el mensaje armado.<br />Apretalo enviar y nos llega directo.</p>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.form-step'));
+      var dots = Array.prototype.slice.call(form.querySelectorAll('[data-step-dot]'));
+      var stepLabel = document.getElementById('quiz-step-label');
+      var errEl = document.getElementById('form-error');
+      var current = 1;
+
+      function val(id) { return document.getElementById(id).value.trim(); }
+      function choice(name) {
+        var c = form.querySelector('input[name="' + name + '"]:checked');
+        return c ? c.value : '';
+      }
+      function showError(msg) {
+        if (!errEl) return;
+        if (msg) { errEl.textContent = msg; errEl.hidden = false; }
+        else { errEl.hidden = true; }
+      }
+      function goTo(step) {
+        current = Math.min(Math.max(step, 1), steps.length);
+        steps.forEach(function (panel) {
+          var active = Number(panel.dataset.step) === current;
+          panel.classList.toggle('is-active', active);
+          panel.hidden = !active;
+        });
+        dots.forEach(function (dot) {
+          var n = Number(dot.dataset.stepDot);
+          dot.classList.toggle('is-current', n === current);
+          dot.classList.toggle('is-done', n < current);
+        });
+        if (stepLabel) stepLabel.textContent = current > 3 ? '¡Listo!' : 'Paso ' + current + ' de 3';
+        showError('');
+      }
+
+      form.querySelectorAll('.quiz-options input[type="radio"]').forEach(function (radio) {
+        radio.checked = false;
+        radio.addEventListener('click', function () {
+          setTimeout(function () { goTo(Number(radio.closest('.form-step').dataset.step) + 1); }, 220);
+        });
+      });
+      form.querySelectorAll('[data-back]').forEach(function (btn) {
+        btn.addEventListener('click', function () { goTo(current - 1); });
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var tel = val('f-tel');
+        var email = val('f-email');
+        if (!tel && !email) {
+          showError('Completá tu WhatsApp o tu email para que te contactemos.');
+          return;
+        }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError('Ese email no parece válido.');
+          return;
+        }
+        showError('');
+        var svc = choice('servicio') || 'General';
+        var tam = choice('tamano') || '-';
+        var full = 'Servicio: ' + svc + '\nTamaño: ' + tam + ' equipos' +
+          (tel ? '\nWhatsApp: ' + tel : '') +
+          (email ? '\nEmail: ' + email : '');
+        window.open(
+          'https://api.whatsapp.com/send?phone=5491123923138&text=' + encodeURIComponent('Hola Hexacore\n\n' + full),
+          '_blank'
+        );
+        goTo(4);
+      });
+
+      goTo(1);
+    })();
+  </script>
+</body>
+</html>
