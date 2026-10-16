@@ -2036,6 +2036,13 @@ html[data-theme="dark"] .logo-blend {
   text-decoration: underline;
 }
 
+.quiz-privacy {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-top: 0.9rem;
+  line-height: 1.5;
+}
+
 .quiz-success {
   padding: 1.5rem 0;
 }
