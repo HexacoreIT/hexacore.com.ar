@@ -1846,6 +1846,10 @@ html[data-theme="dark"] .logo-blend {
   display: block;
 }
 
+.contact-map-wrapper iframe[hidden] {
+  display: none;
+}
+
 /* FORM */
 .contact-form {
   text-align: left;
