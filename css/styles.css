@@ -2772,6 +2772,12 @@ html[data-theme="dark"] .logo-blend {
   color: var(--text-soft);
 }
 
+.map-placeholder > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
 /* En táctil no hay hover: evita estados pegajosos / saltos por transform */
 @media (hover: none) {
   .service-card:hover,
