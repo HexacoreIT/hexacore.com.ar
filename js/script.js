@@ -3,7 +3,7 @@ if (!window.location.hash) {
   window.scrollTo(0, 0);
 }
 
-// TEAM AVATAR FALLBACK
+
 function handleImageError(img) {
   img.classList.add('is-hidden');
   const fallback = img.parentElement?.querySelector('.avatar-fallback');
@@ -26,7 +26,7 @@ document.querySelectorAll('.avatar-fallback').forEach((fallback) => {
   }
 });
 
-// RESPONSIVE MOBILE MENU
+
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav');
 const navMenuLinks = document.querySelectorAll('.nav a');
@@ -53,25 +53,25 @@ if (navToggle && navMenu) {
     document.documentElement.classList.add('nav-open');
   });
 
-    // Close menu when clicking any link (el link Servicios tiene lógica propia)
+
     navMenuLinks.forEach((link) => {
       if (link.id === 'servicios-link') return;
       link.addEventListener('click', closeMobileMenu);
     });
 
-  // Close menu with the Escape key
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') closeMobileMenu();
   });
 
-  // Close menu when clicking outside the panel
+
   document.addEventListener('click', (event) => {
     if (!navMenu.classList.contains('is-open')) return;
     if (navMenu.contains(event.target) || navToggle.contains(event.target)) return;
     closeMobileMenu();
   });
 
-  // Reset the state when leaving the mobile breakpoint
+
   const onBreakpointChange = (event) => {
     if (!event.matches) {
       closeMobileMenu();
@@ -86,8 +86,8 @@ if (navToggle && navMenu) {
   }
 }
 
-// Submenú sin flecha: en móvil el primer toque en "Servicios" despliega
-// y el segundo navega. En desktop el hover / focus-within sigue por CSS.
+
+
 if (serviciosLink && submenuWrap && navMenu) {
   serviciosLink.addEventListener('click', (event) => {
     const isMobile = MOBILE_NAV_QUERY.matches
@@ -101,8 +101,8 @@ if (serviciosLink && submenuWrap && navMenu) {
   });
 }
 
-// Google Maps bajo demanda: no descarga el iframe hasta que el
-// usuario lo pide o la sección está cerca (mismo tamaño, sin shift).
+
+
 const mapFrame = document.getElementById('contact-map');
 const mapBtn = document.getElementById('map-load-btn');
 const mapPlaceholder = document.getElementById('map-placeholder');
@@ -118,8 +118,14 @@ function loadMap() {
 
 if (mapBtn) mapBtn.addEventListener('click', loadMap);
 
-// ACTIVE LINK ON SCROLL (SCROLL SPY con IntersectionObserver:
-// no depende de offsetTop, que se rompe con transforms en ancestros)
+if (document.readyState === 'complete') {
+  loadMap();
+} else {
+  window.addEventListener('load', loadMap);
+}
+
+
+
 const sections = Array.from(document.querySelectorAll('section[id]'));
 const navLinks = Array.from(document.querySelectorAll('.nav__link'));
 
@@ -147,14 +153,14 @@ if ('IntersectionObserver' in window && sections.length) {
   );
   sections.forEach((section) => spy.observe(section));
 } else {
-  // Fallback sin IntersectionObserver
+
   let isSpyScheduled = false;
 
   function updateActiveLink() {
     isSpyScheduled = false;
 
     const scrollY = window.pageYOffset;
-    const triggerOffset = 180; // offset for better feel
+    const triggerOffset = 180;
     const pageBottom = window.innerHeight + scrollY >= document.documentElement.scrollHeight - 80;
     let activeSectionId = null;
 
@@ -184,7 +190,7 @@ if ('IntersectionObserver' in window && sections.length) {
   updateActiveLink();
 }
 
-// SERVICE CARDS TOGGLE
+
 document.querySelectorAll('.service-card--toggleable').forEach((card) => {
   const toggleBtn = card.querySelector('.service-card__toggle-btn');
   if (!toggleBtn) return;
@@ -195,13 +201,13 @@ document.querySelectorAll('.service-card--toggleable').forEach((card) => {
   });
 });
 
-// FOOTER YEAR
+
 const yearEl = document.getElementById('current-year');
 if (yearEl) {
   yearEl.textContent = String(new Date().getFullYear());
 }
 
-// BOTTOMBAR HEIGHT -> reserva real debajo del contenido
+
 const bottombarEl = document.querySelector('.bottombar');
 const bottombarInner = document.querySelector('.bottombar__inner');
 const BASE_BOTTOMBAR_HEIGHT = parseFloat(
@@ -216,9 +222,9 @@ function syncBottombarHeight() {
   const chrome = ['paddingTop', 'paddingBottom', 'borderTopWidth', 'borderBottomWidth']
     .reduce((total, prop) => total + (parseFloat(styles[prop]) || 0), 0);
 
-  // En mobile el contenido del footer se apila en columna y la barra crece por
-  // encima de --bottombar-height: sin actualizar la variable, el sobrante tapa
-  // el final del contenido porque .content-shell reserva solo la altura base.
+
+
+
   const nextHeight = Math.max(
     BASE_BOTTOMBAR_HEIGHT,
     Math.ceil(bottombarInner.getBoundingClientRect().height + chrome)
@@ -239,7 +245,7 @@ if (bottombarEl && bottombarInner) {
   }
 }
 
-// SUPPORT PLANS: modalidad de soporte (precio mensual)
+
 const calcMods = Array.from(document.querySelectorAll('input[name="mod"]'));
 const calcPrice = document.getElementById('calc-price');
 const calcModality = document.getElementById('calc-count');
@@ -291,17 +297,17 @@ if (calcCta) {
   });
 }
 
-// GLITCH B usa animación SMIL (no obedece el CSS de reduced-motion):
-// se congela si el usuario prefiere sin movimiento.
+
+
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('svg.hero-svg').forEach((svg) => {
     if (typeof svg.pauseAnimations === 'function') svg.pauseAnimations();
   });
 }
 
-// CLIENTS MARQUEE por JS con píxeles enteros: las animaciones CSS
-// mueven en subpíxeles y Firefox las muestra vibrando. Sin JS sigue
-// funcionando el marquee CSS de respaldo.
+
+
+
 (function marquee() {
   const track = document.querySelector('.clients-track');
   if (!track) return;
@@ -309,7 +315,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
   track.style.animation = 'none';
 
-  const LOOP_SECONDS = 20; // una vuelta cada 20s (igual que el CSS)
+  const LOOP_SECONDS = 20;
   let half = 0;
   let x = 0;
   let last = 0;
@@ -344,8 +350,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   window.requestAnimationFrame(frame);
 })();
 
-// GLITCH A+C — los patrones de slices los pone el CSS; el JS aleatoriza
-// el tempo (duración y fase) para que no se repita mecánico.
+
+
 (function glitchAC() {
   const layers = Array.from(document.querySelectorAll('.hero-svg .glitch-layer'));
   if (!layers.length) return;
@@ -362,9 +368,9 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   retime();
 })();
 
-// CONTACT QUIZ — 1 pregunta por pantalla, avanza al tocar.
-// Paso 3: WhatsApp o Email (alcanza con uno). Envío automático por
-// email (FormSubmit) + WhatsApp/Email de respaldo.
+
+
+
 (function contactQuiz() {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -408,12 +414,12 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     showError('');
   }
 
-  // Sin preselección: algunos navegadores restauran el estado anterior.
+
   form.querySelectorAll('.quiz-options input[type="radio"]').forEach((radio) => {
     radio.checked = false;
   });
 
-  // Avance al tocar (click, no change: si ya estaba marcado igual avanza).
+
   form.querySelectorAll('.quiz-options input[type="radio"]').forEach((radio) => {
     radio.addEventListener('click', () => {
       const panel = radio.closest('.form-step');
@@ -499,8 +505,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   goTo(1);
 })();
 
-// HERO FLICKER aleatorio: 2 a 4 parpadeos por ráfaga, en tiempos
-// impredecibles. Entre ráfagas manda la respiración suave del CSS.
+
+
 (function breatheFlicker() {
   const hero = document.querySelector('.hero-svg');
   if (!hero) return;
@@ -512,7 +518,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const total = (2 + Math.floor(Math.random() * 3)) * 2;
     let i = 0;
 
-    // La animación CSS pisa los estilos inline: se apaga durante la ráfaga.
+
     hero.style.animation = 'none';
 
     (function step() {
