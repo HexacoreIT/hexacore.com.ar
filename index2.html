@@ -61,22 +61,23 @@
         <img src="./img/logo.svg" alt="Hexacore Logo" class="brand__logo" />
         <span class="brand__text-wrap">
           <span class="brand__text">HEXACORE</span>
-          <span class="brand__tagline" aria-label="Soluciones IT"><span aria-hidden="true">S</span><span aria-hidden="true">O</span><span aria-hidden="true">L</span><span aria-hidden="true">U</span><span aria-hidden="true">C</span><span aria-hidden="true">I</span><span aria-hidden="true">O</span><span aria-hidden="true">N</span><span aria-hidden="true">E</span><span aria-hidden="true">S</span><span aria-hidden="true" class="brand__tagline-sp"></span><span aria-hidden="true">I</span><span aria-hidden="true">T</span></span>
+          <span class="brand__tagline" aria-label="Soporte Técnico"><span aria-hidden="true">S</span><span aria-hidden="true">o</span><span aria-hidden="true">p</span><span aria-hidden="true">o</span><span aria-hidden="true">r</span><span aria-hidden="true">t</span><span aria-hidden="true">e</span><span aria-hidden="true" class="brand__tagline-sp"></span><span aria-hidden="true">T</span><span aria-hidden="true">é</span><span aria-hidden="true">c</span><span aria-hidden="true">n</span><span aria-hidden="true">i</span><span aria-hidden="true">c</span><span aria-hidden="true">o</span></span>
         </span>
       </a>
 
       <nav id="primary-nav" class="nav" aria-label="Navegación principal">
+        <div class="nav-indicator" aria-hidden="true"></div>
         <a href="#inicio" class="nav__link is-active">Inicio</a>
         <a href="#nosotros" class="nav__link">Nosotros</a>
         <div class="nav__item nav__item--has-submenu">
           <a href="#servicios" class="nav__link" id="servicios-link">Servicios</a>
           <div class="nav__submenu" id="servicios-submenu">
+            <a href="#servicio-soporte" class="nav__submenu-link">Soporte de PC</a>
+            <a href="#servicio-servidores" class="nav__submenu-link">Soporte de Servidores</a>
             <a href="#servicio-infraestructura" class="nav__submenu-link">Infraestructura</a>
-            <a href="#servicio-seguridad" class="nav__submenu-link">Seguridad</a>
-            <a href="#servicio-cloud" class="nav__submenu-link">Cloud</a>
-            <a href="#servicio-soporte" class="nav__submenu-link">Soporte Técnico</a>
-            <a href="#servicio-redes" class="nav__submenu-link">Redes</a>
-            <a href="#servicio-bases" class="nav__submenu-link">Bases de Datos</a>
+            <a href="#servicio-seguridad" class="nav__submenu-link">Seguridad Informática</a>
+            <a href="#servicio-ia" class="nav__submenu-link">Implementación IA</a>
+            <a href="#servicio-redes" class="nav__submenu-link">Marketing Online</a>
           </div>
         </div>
         <a href="#presupuesto" class="nav__link">Planes</a>
@@ -88,10 +89,9 @@
         <a class="theme-toggle" href="https://api.whatsapp.com/send?phone=5491123923138" target="_blank"
           rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
           <span class="theme-toggle__icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round" style="display: block; vertical-align: middle;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display: block;">
               <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z">
               </path>
             </svg>
           </span>
@@ -111,12 +111,12 @@
   <main class="content-shell">
     
     <section id="inicio" class="hero-section">
+      <canvas class="pixel-bg" aria-hidden="true"></canvas>
       <div class="hero-content">
         <div class="hero-text">
           <h1>Bienvenidos a Hexacore</h1>
-          <p class="hero-subdescription">Con más de una década de experiencia en el sector, somos el socio tecnológico de confianza para organizaciones que buscan optimizar sus procesos y modernizar su infraestructura.</p>
-          <p class="hero-subdescription">Infraestructura de TI, seguridad informática, migración a la nube y soporte técnico especializado, con soluciones personalizadas según objetivos y presupuesto.</p>
-          <p class="hero-subdescription">Sede en Buenos Aires, Argentina. Atendemos clientes en toda Latinoamérica, con soporte remoto y presencial.</p>
+          <p class="hero-subdescription">Con más de 25 años de experiencia en el sector, somos el socio tecnológico de confianza para organizaciones que buscan optimizar sus procesos y modernizar su infraestructura.</p>
+          <p class="hero-subdescription">Infraestructura, Seguridad Informática,  y Soporte Técnico especializado, con soluciones personalizadas según objetivos y presupuesto.</p>
           <div class="hero-cta">
             <a class="button button--primary" href="#contacto">Contactanos</a>
             <a class="button button--ghost" href="#servicios">Ver servicios</a>
@@ -126,6 +126,11 @@
         <div class="hero-visual">
           <div class="visual-container">
             <svg class="hero-svg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="logo-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="-8" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+                </filter>
+              </defs>
               <g class="g-grid" stroke="var(--border)" stroke-width="1" opacity="0.6">
                 <path
                   d="M50 0V500M150 0V500M250 0V500M350 0V500M450 0V500M0 50H500M0 150H500M0 250H500M0 350H500M0 450H500" />
@@ -133,12 +138,12 @@
               
 
               
-              <circle cx="225" cy="225" r="180" fill="url(#discFade)"
-                class="glow-node" />
+              <!-- <circle cx="225" cy="225" r="180" fill="url(#discFade)"
+                class="glow-node" /> -->
               
-              <image href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" />
-              <image class="glitch-layer glitch-layer--r" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchR)" aria-hidden="true" />
-              <image class="glitch-layer glitch-layer--c" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchC)" aria-hidden="true" />
+              <image href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#logo-shadow)" />
+              <image class="glitch-layer glitch-layer--r" href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#glitchR)" aria-hidden="true" />
+              <image class="glitch-layer glitch-layer--c" href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#glitchC)" aria-hidden="true" />
 
               <defs>
                 <radialGradient id="discFade" cx="50%" cy="50%" r="50%">
@@ -173,12 +178,11 @@
     <section id="nosotros" class="alt-section">
       <div class="alt-grid">
         <div class="alt-content">
-          <h2>Soluciones a medida para los objetivos de tu empresa.</h2>
-          <p class="alt-description">En Hexacore entendemos que cada empresa tiene necesidades únicas. Por eso,
-            desarrollamos soluciones personalizadas que se adaptan a los objetivos y presupuestos de
-            nuestros clientes.</p>
-          <p class="alt-subdescription">Con sede en Buenos Aires, Argentina, atendemos clientes en toda Latinoamérica,
-            brindando soporte remoto y presencial según cada proyecto.</p>
+          <h2>Soluciones a medida para el hogar y empresas.</h2>
+          <p class="alt-description">En Hexacore entendemos que cada cliente tiene necesidades únicas. Por eso,
+            desarrollamos soluciones personalizadas que se adaptan a sus objetivos y presupuestos
+            .</p>
+          <p class="alt-subdescription"> Estamos en San Martin, Buenos Aires, y atendemos clientes en todo el país, con soporte remoto y presencial.</p>
 
           <div class="value-bullets">
             <div class="bullet-item">
@@ -197,14 +201,13 @@
         </div>
 
         <div class="alt-visual">
-          <h3 class="team-title-inside">Nuestro Equipo</h3>
           <div class="team-members-list">
             
             <div class="team-member-card">
               <div class="team-member-avatar-wrapper">
                 <a href="http://www.nicolasmato.com.ar" target="_blank" rel="noopener noreferrer"
                   aria-label="Perfil de Nicolás" class="team-member-avatar">
-                  <img src="./img/team/opm.png" alt="Nicolás" width="64" height="64" loading="lazy" decoding="async" />
+                  <img src="./img/team/nicolas.jpg" alt="Nicolás" width="96" height="96" loading="lazy" decoding="async" />
                   <span class="avatar-fallback">N</span>
                 </a>
               </div>
@@ -213,8 +216,8 @@
                   <h4>Nicolás</h4>
                   <span class="member-role-badge">Técnico Especialista</span>
                 </div>
-                <p class="member-bio">Técnico especializado en infraestructura y sistemas con más de 10 años de
-                  experiencia. Diseña e implementa las soluciones técnicas más
+                <p class="member-bio">Técnico especializado en infraestructura y sistemas con más de 25 años de
+                  experiencia. Encargado de diseñar e implementar soluciones técnicas más
                   complejas con los más altos estándares de calidad y seguridad.
                 </p>
               </div>
@@ -224,7 +227,7 @@
             <div class="team-member-card">
               <div class="team-member-avatar-wrapper">
                 <span class="team-member-avatar" aria-label="Foto de Delfina">
-                  <img src="./img/team/opw.png" alt="Delfina" width="64" height="64" loading="lazy" decoding="async" />
+                  <img src="./img/team/opw.png" alt="Delfina" width="96" height="96" loading="lazy" decoding="async" />
                   <span class="avatar-fallback">D</span>
                 </span>
               </div>
@@ -243,7 +246,7 @@
             <div class="team-member-card">
               <div class="team-member-avatar-wrapper">
                 <span class="team-member-avatar" aria-label="Foto de Mariana">
-                  <img src="./img/team/opw.png" alt="Mariana" width="64" height="64" loading="lazy" decoding="async" />
+                  <img src="./img/team/mariana.jpg" alt="Mariana" width="96" height="96" loading="lazy" decoding="async" />
                   <span class="avatar-fallback">M</span>
                 </span>
               </div>
@@ -252,7 +255,7 @@
                   <h4>Mariana</h4>
                   <span class="member-role-badge">Community Manager</span>
                 </div>
-                <p class="member-bio">Es la encargada de gestionar redes sociales y comunicación digital para
+                <p class="member-bio">Encargada de gestionar redes sociales y comunicación digital para
                   nuestros clientes: crea contenido que conecta con tu audiencia y potencia tu presencia online.
                 </p>
               </div>
@@ -273,67 +276,6 @@
 
       <div class="services-grid services-grid--six">
         
-        <div class="service-card" id="servicio-infraestructura">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-              <line x1="6" y1="6" x2="6.01" y2="6"></line>
-              <line x1="6" y1="18" x2="6.01" y2="18"></line>
-            </svg>
-          </div>
-          <h3>Infraestructura</h3>
-          <div class="service-card__expanded-info">
-            <p>Diseñamos, implementamos y administramos plataformas resilientes para tus operaciones críticas.</p>
-            <ul class="service-bullets">
-              <li>Arquitecturas híbridas on-premise y cloud escalables.</li>
-              <li>Monitoreo 24/7 con alertas proactivas.</li>
-              <li>Continuidad operativa y recuperación ante desastres.</li>
-            </ul>
-          </div>
-        </div>
-
-        
-        <div class="service-card" id="servicio-seguridad">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <h3>Seguridad</h3>
-          <div class="service-card__expanded-info">
-            <p>Fortalecemos tu postura de seguridad para reducir riesgos reales.</p>
-            <ul class="service-bullets">
-              <li>Vulnerabilidades y pentesting orientado al negocio.</li>
-              <li>Zero Trust y gestión de identidades.</li>
-              <li>Respuesta a incidentes con soporte inmediato.</li>
-            </ul>
-          </div>
-        </div>
-
-        
-        <div class="service-card" id="servicio-cloud">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a6 6 0 0 0 0-12z"></path>
-            </svg>
-          </div>
-          <h3>Cloud</h3>
-          <div class="service-card__expanded-info">
-            <p>Adopción de nube gradual, segura y optimizada en costos.
-            </p>
-            <ul class="service-bullets">
-              <li>Assessment y prioridades de migración.</li>
-              <li>Infraestructura como código y CI/CD.</li>
-              <li>Optimización continua y gobernanza multi-cloud.</li>
-            </ul>
-          </div>
-        </div>
-
-        
         <div class="service-card" id="servicio-soporte">
           <div class="service-card__icon">
             <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
@@ -348,13 +290,101 @@
               <line x1="17" y1="7" x2="22" y2="7"></line>
             </svg>
           </div>
-          <h3>Soporte Técnico</h3>
+          <h3>Soporte Técnico de PC</h3>
           <div class="service-card__expanded-info">
-            <p>Acompañamiento continuo para tu parque informático.</p>
+            <p>Para computadoras de uso hogareño y empresarial.</p>
             <ul class="service-bullets">
-              <li>Mesa de ayuda con tickets y SLA definidos.</li>
-              <li>Mantenimiento preventivo y correctivo.</li>
-              <li>Inventario y reportes periódicos.</li>
+              <li>Reparación y mantenimiento de PC y notebooks.</li>
+              <li>Instalación y configuración de Sistemas Operativos y programas.</li>
+              <li>Limpieza de virus, optimización y respaldo de datos.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-servidores">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3>Soporte de Servidores</h3>
+          <div class="service-card__expanded-info">
+            <p>Administración y optimización de servidores físicos y virtuales.</p>
+            <ul class="service-bullets">
+              <li>Configuración, Hardening y mantenimiento proactivo.</li>
+              <li>Virtualización y gestión de contenedores.</li>
+              <li>Monitoreo de recursos y capacidad operativa.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-infraestructura">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3>Infraestructura</h3>
+          <div class="service-card__expanded-info">
+            <p>Diseño, implementación y administración de plataformas para operaciones críticas.</p>
+            <ul class="service-bullets">
+              <li>Implementación de sistemas ERP.</li>
+              <li>Redes LAN/WAN, VLAN y QoS.</li>
+              <li>WiFi corporativo y VPN.</li>
+              <li class="iso-term">
+                <span class="iso-term__label" tabindex="0" aria-describedby="iso-popover">Norma de trabajo ISO 27001</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-seguridad">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Seguridad Informática</h3>
+          <div class="service-card__expanded-info">
+            <p>Fortalecimiento de seguridad para reducción de riesgos reales.</p>
+            <ul class="service-bullets">
+              <li>Vulnerabilidades y pentesting orientado al negocio.</li>
+              <li>Zero Trust y gestión de identidades.</li>
+              <li>Respuesta a incidentes con soporte inmediato.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-ia">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+              <path d="M8 14a4 4 0 0 1 8 0"></path>
+            </svg>
+          </div>
+          <h3>Implementación IA</h3>
+          <div class="service-card__expanded-info">
+            <p>Integración de inteligencia artificial en tus procesos y productos.</p>
+            <ul class="service-bullets">
+              <li>Automatización con LLMs y agentes autónomos.</li>
+              <li>Análisis de datos y escenarios críticos.</li>
+              <li>MLOps, RAG, Embeddings y Fine-Tuning.</li>
             </ul>
           </div>
         </div>
@@ -370,35 +400,13 @@
               <path d="M12 8v8M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
             </svg>
           </div>
-          <h3>Redes</h3>
+          <h3>Marketing Online</h3>
           <div class="service-card__expanded-info">
-            <p>Conectividad estable y segura, sin importar la escala.
-            </p>
+            <p>Estrategia y contenido para tu presencia online.</p>
             <ul class="service-bullets">
-              <li>Topologías LAN/WAN, VLAN y QoS.</li>
-              <li>WiFi corporativo con roaming inteligente.</li>
-              <li>Supervisión y tuning de tráfico.</li>
-            </ul>
-          </div>
-        </div>
-
-        
-        <div class="service-card" id="servicio-bases">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
-            </svg>
-          </div>
-          <h3>Bases de Datos</h3>
-          <div class="service-card__expanded-info">
-            <p>Disponibilidad y rendimiento de tus datos críticos.</p>
-            <ul class="service-bullets">
-              <li>Modelos relacionales y no relacionales.</li>
-              <li>Performance tuning e indexación.</li>
-              <li>Backups, replicación y recuperación.</li>
+              <li>Gestión de redes sociales y comunicación digital.</li>
+              <li>Diseño y mantenimiento del sitio web de tu empresa.</li>
+              <li>Campañas de publicidad digital y análisis de resultados.</li>
             </ul>
           </div>
         </div>
@@ -409,7 +417,7 @@
     <section id="presupuesto" class="calc-section" aria-label="Planes de soporte">
       <div class="calc-grid">
         <div>
-          <h2 class="calc-title">Planes de soporte</h2>
+          <h2 class="calc-title">Planes de soporte Pymes</h2>
           <p class="calc-intro">Elegí la modalidad de soporte. Valores orientativos en USD por mes.</p>
           <div class="calc-group">
             <span class="calc-group__title">Modalidad de soporte</span>
@@ -446,7 +454,7 @@
       <div class="clients-inner">
         <div class="section-header">
           <h2>Empresas que confían en nosotros</h2>
-          <p>Alianzas con marcas líderes y empresas de distintos sectores.</p>
+          <p>Estos son algunos de los clientes con los que trabajamos día a día.</p>
         </div>
 
         
@@ -497,7 +505,8 @@
     <section id="contacto" class="cta-section">
       <div class="cta-card">
         <div class="cta-content">
-          <h2>Contacto</h2>
+          <h2>Contactanos</h2>
+          <p class="contact-subtitle">Elegí el servicio, contactanos y coordinamos una llamada.</p>
 
           <div class="contact-grid-outer">
             
@@ -513,12 +522,12 @@
                 <div class="form-step is-active" data-step="1">
                   <h3 class="quiz-question">¿Qué necesitás?</h3>
                   <div class="quiz-options" role="radiogroup" aria-label="Servicio">
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Soporte PC" /><span>Soporte PC</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Servidores" /><span>Servidores</span></label>
                     <label class="quiz-option"><input type="radio" name="servicio" value="Infraestructura" /><span>Infraestructura</span></label>
                     <label class="quiz-option"><input type="radio" name="servicio" value="Seguridad" /><span>Seguridad</span></label>
-                    <label class="quiz-option"><input type="radio" name="servicio" value="Cloud" /><span>Cloud</span></label>
-                    <label class="quiz-option"><input type="radio" name="servicio" value="Soporte Técnico" /><span>Soporte Técnico</span></label>
                     <label class="quiz-option"><input type="radio" name="servicio" value="Redes" /><span>Redes</span></label>
-                    <label class="quiz-option"><input type="radio" name="servicio" value="Bases de Datos" /><span>Bases de Datos</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Implementación IA" /><span>Implementación IA</span></label>
                   </div>
                 </div>
 
@@ -543,8 +552,11 @@
                     <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
                   </div>
                   <p class="form-error" id="form-error" role="alert" hidden></p>
+                  <label class="quiz-consent">
+                    <input type="checkbox" id="f-consent" name="consentimiento" />
+                    <span>Al enviar, aceptás que usemos tus datos solo para contactarte.</span>
+                  </label>
                   <button class="button button--primary button--full" type="submit" id="form-submit">Enviar</button>
-                  <p class="quiz-privacy">Al enviar, aceptás que usemos tus datos solo para contactarte.</p>
                   <button class="quiz-back" type="button" data-back>Atrás</button>
                 </div>
 
@@ -562,7 +574,7 @@
                   <p>Mapa de ubicación — Buenos Aires</p>
                   <button class="button button--primary" type="button" id="map-load-btn">Cargar mapa</button>
                 </div>
-                <iframe id="contact-map" data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11048.290623637922!2d-58.52046080521688!3d-34.587052393051025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1761269105327!5m2!1ses-419!2sar" title="Ubicación de Hexacore en Buenos Aires, Argentina" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+                <iframe id="contact-map" data-src="https://maps.google.com/maps?q=Murature%204381%2C%20Villa%20Lynch%2C%20Buenos%20Aires&z=16&output=embed" title="Ubicación de Hexacore en Murature 4381, Villa Lynch, Buenos Aires" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
               </div>
             </div>
 
@@ -585,18 +597,18 @@
                 </div>
                 <div>
                   <h5>Dirección</h5>
-                  <p>Av. Corrientes 1234, Buenos Aires</p>
+                  <p>Murature 4381, Villa Lynch</p>
                 </div>
               </div>
               <div class="info-card">
                 <div class="info-card__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h5>Teléfono</h5>
-                  <p><a href="tel:+541123456789">+54 11 2345-6789</a></p>
+                  <h5>WhatsApp</h5>
+                  <p><a href="tel:+5491123923138">+54 9 11 2392-3138</a></p>
                 </div>
               </div>
               <div class="info-card">
@@ -645,6 +657,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="iso-popover" id="iso-popover" role="tooltip">
+    <h4 class="iso-popover__title">¿Cómo se aplica a tu empresa?</h4>
+    <ol class="iso-popover__list">
+      <li>Control de accesos: Cada empleado accede solamente a los sistemas que necesita.</li>
+      <li>Contraseñas y autenticación: Proteger las cuentas y los accesos.</li>
+      <li>Copias de seguridad: Tener backups para recuperar información ante un incidente.</li>
+      <li>Gestión de incidentes: Establecer qué hacer ante un ataque informático o una filtración de datos.</li>
+      <li>Actualizaciones: Mantener los sistemas protegidos y corregir vulnerabilidades.</li>
+      <li>Capacitación: Capacitar a los empleados para reconocer amenazas como el phishing.</li>
+      <li>Auditorías: Revisar periódicamente que las medidas de seguridad realmente se cumplan.</li>
+    </ol>
+  </div>
 
   <script src="./js/script.js"></script>
 </body>

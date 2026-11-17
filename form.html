@@ -10,6 +10,7 @@
   <style>
     .demo-wrap { max-width: 720px; margin: 0 auto; padding: 48px 5vw 96px; }
     .demo-wrap .brand { display: inline-flex; margin-bottom: 2rem; }
+    .honeypot { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -52,11 +53,15 @@
         <h3 class="quiz-question">¿Cómo te contactamos?</h3>
         <div class="form-field">
           <label for="f-tel">WhatsApp</label>
-          <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 2345-6789" />
+          <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="1123456789" />
         </div>
         <div class="form-field">
           <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nombre@mail.com" />
+        </div>
+        <div class="honeypot">
+          <label for="website">Sitio web</label>
+          <input id="website" name="website" type="text" />
         </div>
         <p class="form-error" id="form-error" role="alert" hidden></p>
         <button class="button button--primary button--full" type="submit" id="form-submit">Enviar por WhatsApp</button>
@@ -120,6 +125,9 @@
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
+        if (val('website')) {
+          return;
+        }
         var tel = val('f-tel');
         var email = val('f-email');
         if (!tel && !email) {
@@ -131,6 +139,8 @@
           return;
         }
         showError('');
+        var btn = document.getElementById('form-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
         var svc = choice('servicio') || 'General';
         var tam = choice('tamano') || '-';
         var full = 'Servicio: ' + svc + '\nTamaño: ' + tam + ' equipos' +
@@ -140,6 +150,7 @@
           'https://api.whatsapp.com/send?phone=5491123923138&text=' + encodeURIComponent('Hola Hexacore\n\n' + full),
           '_blank'
         );
+        setTimeout(function () { if (btn) { btn.disabled = false; btn.textContent = 'Enviar por WhatsApp'; } }, 30000);
         goTo(4);
       });
 

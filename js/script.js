@@ -191,6 +191,49 @@ if ('IntersectionObserver' in window && sections.length) {
 }
 
 
+const navIndicator = document.querySelector('.nav-indicator');
+const nav = document.querySelector('.nav');
+
+function moveIndicator(link) {
+  if (!navIndicator || !nav || !link) return;
+  const navRect = nav.getBoundingClientRect();
+  const linkRect = link.getBoundingClientRect();
+  navIndicator.style.width = `${linkRect.width}px`;
+  navIndicator.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
+  navIndicator.classList.add('active');
+}
+
+function clearIndicator() {
+  if (!navIndicator) return;
+  navIndicator.classList.remove('active');
+}
+
+navLinks.forEach((link) => {
+  const hoverArea = link.closest('.nav__item--has-submenu') || link;
+  hoverArea.addEventListener('mouseenter', () => moveIndicator(link));
+  hoverArea.addEventListener('mouseleave', () => {
+    const activeLink = document.querySelector('.nav__link.is-active');
+    if (activeLink) moveIndicator(activeLink);
+    else clearIndicator();
+  });
+});
+
+const initialActive = document.querySelector('.nav__link.is-active');
+if (initialActive) moveIndicator(initialActive);
+
+const originalSetActiveLink = setActiveLink;
+setActiveLink = function (id) {
+  originalSetActiveLink(id);
+  const newActive = document.querySelector('.nav__link.is-active');
+  if (newActive) moveIndicator(newActive);
+};
+
+window.addEventListener('resize', () => {
+  const activeLink = document.querySelector('.nav__link.is-active');
+  if (activeLink) moveIndicator(activeLink);
+});
+
+
 document.querySelectorAll('.service-card--toggleable').forEach((card) => {
   const toggleBtn = card.querySelector('.service-card__toggle-btn');
   if (!toggleBtn) return;
@@ -445,6 +488,11 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       showError('Ese email no parece válido.');
       return;
     }
+    const consent = document.getElementById('f-consent');
+    if (consent && !consent.checked) {
+      showError('Marcá la casilla para aceptar el uso de tus datos.');
+      return;
+    }
     showError('');
 
     const svc = choice('servicio') || 'General';
@@ -540,4 +588,162 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }
 
   schedule();
+})();
+
+
+(function () {
+  var canvases = Array.prototype.slice.call(document.querySelectorAll('.pixel-bg'));
+  if (!canvases.length) return;
+
+  var vertexSource = [
+    'attribute vec2 position;',
+    'void main() {',
+    '  gl_Position = vec4(position, 0.0, 1.0);',
+    '}'
+  ].join('\n');
+
+  var fragmentSource = [
+    'precision highp float;',
+    'uniform vec2 u_resolution;',
+    'uniform float u_time;',
+    'float random(vec2 st) {',
+    '  return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);',
+    '}',
+    'void main() {',
+    '  float pixelSize = 80.0;',
+    '  vec2 uv = gl_FragCoord.xy / u_resolution.xy;',
+    '  vec2 pixelated = floor(uv * pixelSize) / pixelSize;',
+    '  float t = u_time * 0.0003;',
+    '  vec2 p1 = pixelated + vec2(sin(t * 1.0) * 0.3, cos(t * 1.3) * 0.2);',
+    '  vec2 p2 = pixelated + vec2(cos(t * 0.8) * 0.2, sin(t * 1.1) * 0.3);',
+    '  float d1 = 1.0 - smoothstep(0.0, 0.8, distance(p1, vec2(0.3, 0.4)));',
+    '  float d2 = 1.0 - smoothstep(0.0, 0.8, distance(p2, vec2(0.7, 0.6)));',
+    '  float flicker = random(pixelated * 100.0 + fract(u_time * 0.001));',
+    '  float grain = (flicker - 0.5) * 0.08;',
+    '  float glow = (d1 + d2) * 0.06;',
+    '  float alpha = clamp(0.05 + glow + grain, 0.0, 0.2);',
+    '  vec3 color = vec3(0.62) + vec3(d1 - d2) * 0.08;',
+    '  float vignette = 1.0 - smoothstep(0.4, 1.4, distance(pixelated, vec2(0.5)));',
+    '  color *= 0.9 + vignette * 0.1;',
+    '  gl_FragColor = vec4(color, alpha);',
+    '}'
+  ].join('\n');
+
+  function compile(gl, type, source) {
+    var shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      gl.deleteShader(shader);
+      return null;
+    }
+    return shader;
+  }
+
+  canvases.forEach(function (canvas) {
+    var gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false });
+    if (!gl) return;
+
+    var vertexShader = compile(gl, gl.VERTEX_SHADER, vertexSource);
+    var fragmentShader = compile(gl, gl.FRAGMENT_SHADER, fragmentSource);
+    if (!vertexShader || !fragmentShader) return;
+
+    var program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+
+    gl.useProgram(program);
+
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
+      gl.STATIC_DRAW
+    );
+
+    var positionLocation = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(positionLocation);
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+    var resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
+    var timeLocation = gl.getUniformLocation(program, 'u_time');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resize() {
+      var width = Math.floor(canvas.clientWidth * dpr);
+      var height = Math.floor(canvas.clientHeight * dpr);
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+    }
+
+    function draw(time) {
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform1f(timeLocation, time);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+    }
+
+    resize();
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(0);
+      return;
+    }
+
+    function loop(time) {
+      draw(time);
+      window.requestAnimationFrame(loop);
+    }
+
+    window.requestAnimationFrame(loop);
+
+    window.addEventListener('resize', function () {
+      resize();
+      draw(performance.now());
+    });
+  });
+})();
+
+(function isoPopover() {
+  const trigger = document.querySelector('.iso-term__label');
+  const pop = document.getElementById('iso-popover');
+  if (!trigger || !pop) return;
+
+  function position() {
+    const r = trigger.getBoundingClientRect();
+    const pr = pop.getBoundingClientRect();
+    let top = r.top - pr.height - 12;
+    if (top < 12) top = r.bottom + 12;
+    let left = r.left + r.width / 2 - pr.width / 2;
+    left = Math.max(12, Math.min(left, window.innerWidth - pr.width - 12));
+    pop.style.top = Math.round(top) + 'px';
+    pop.style.left = Math.round(left) + 'px';
+  }
+
+  function show() {
+    pop.classList.add('is-visible');
+    position();
+  }
+
+  function hide() {
+    pop.classList.remove('is-visible');
+  }
+
+  trigger.addEventListener('mouseenter', show);
+  trigger.addEventListener('mouseleave', hide);
+  trigger.addEventListener('focus', show);
+  trigger.addEventListener('blur', hide);
+  trigger.addEventListener('click', () => {
+    if (pop.classList.contains('is-visible')) hide();
+    else show();
+  });
+  window.addEventListener('scroll', hide, { passive: true });
+  window.addEventListener('resize', hide);
 })();
