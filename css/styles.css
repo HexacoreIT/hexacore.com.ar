@@ -301,8 +301,8 @@ body::before {
 }
 
 .brand__logo {
-  width: 68px;
-  height: 68px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
   border-radius: 8px;
   transition: transform 0.2s ease;
@@ -1063,7 +1063,7 @@ button:focus-visible {
   position: relative;
   width: 96px;
   height: 96px;
-  border-radius: 50%;
+  border-radius: 16px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--brand-light), var(--accent));
   display: flex;
@@ -1366,6 +1366,167 @@ button:focus-visible {
 }
 
 
+/* ===== FAQ ===== */
+.faq-section {
+  background: var(--bg-alt);
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-inner {
+  max-width: 1200px;
+  width: min(90vw, 1200px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.faq-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-intro h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.faq-intro > p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin-bottom: 2rem;
+  max-width: 42ch;
+}
+
+.faq-intro .button {
+  align-self: flex-start;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.faq-item[open] {
+  border-color: var(--border-active);
+  background: rgba(17, 24, 39, 0.95);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--text);
+  transition: color 0.25s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--brand-light);
+  outline-offset: -3px;
+  border-radius: 16px;
+}
+
+.faq-item summary:hover {
+  color: var(--brand-light);
+}
+
+.faq-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease,
+    border-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.faq-answer {
+  padding: 0 1.4rem 1.3rem;
+  font-size: 0.93rem;
+  color: var(--text-soft);
+  max-width: 62ch;
+  animation: faq-fade 0.3s ease;
+}
+
+.faq-answer strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@keyframes faq-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .faq-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .faq-intro > p {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq-item summary {
+    padding: 1rem 1.1rem;
+    font-size: 0.93rem;
+  }
+
+  .faq-answer {
+    padding: 0 1.1rem 1.1rem;
+  }
+}
+
 .clients-section {
   transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
@@ -1397,7 +1558,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: clients-marquee 20s linear infinite;
+  animation: clients-marquee 26s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -1441,6 +1602,11 @@ button:focus-visible {
 .client-logo--xs img {
   max-height: none;
   max-width: 250px;
+}
+
+.client-logo--lg img {
+  max-height: 140px;
+  max-width: 140px;
 }
 
 .logo-round {
@@ -2921,6 +3087,7 @@ html[data-theme="dark"] .logo-blend {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.7;
 }
 
 .hero-section > :not(.pixel-bg) {

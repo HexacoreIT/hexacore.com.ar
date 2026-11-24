@@ -1,88 +1,754 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hexacore</title>
+  <title>Hexacore | Soluciones & Consultoría IT</title>
+  <meta name="description"
+    content="Hexacore - Soluciones tecnológicas integrales para empresas. Especialistas en infraestructura IT, seguridad informática, migración a la nube, redes y soporte técnico. Más de 15 años de experiencia ayudando a empresas a optimizar sus procesos tecnológicos." />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hexacore.com.ar/" />
+  <meta property="og:title" content="Hexacore | Soluciones & Consultoría IT" />
+  <meta property="og:description"
+    content="Hexacore - Soluciones tecnológicas integrales para empresas. Especialistas en infraestructura IT, seguridad informática, migración a la nube, redes y soporte técnico. Más de 15 años de experiencia ayudando a empresas a optimizar sus procesos tecnológicos." />
+  <meta property="og:image" content="https://hexacore.com.ar/img/logo-og.png" />
+  <meta property="og:image:secure_url" content="https://hexacore.com.ar/img/logo-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Hexacore - Soluciones & Consultoría IT" />
+
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://hexacore.com.ar/" />
+  <meta name="twitter:title" content="Hexacore | Soluciones & Consultoría IT" />
+  <meta name="twitter:description"
+    content="Hexacore - Soluciones tecnológicas integrales para empresas. Especialistas en infraestructura IT, seguridad informática, migración a la nube, redes y soporte técnico. Más de 15 años de experiencia ayudando a empresas a optimizar sus procesos tecnológicos." />
+  <meta name="twitter:image" content="https://hexacore.com.ar/img/logo-og.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="./img/logo.svg" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
-      background: #090d16;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-    .hero-svg {
-      width: min(60vmin, 340px);
-      height: auto;
-      display: block;
-      animation: hero-breathe 5s ease-in-out infinite;
-    }
-    @keyframes hero-breathe {
-      0%, 100% { filter: drop-shadow(0 0 45px rgba(188, 193, 205, 0.35)); }
-      50% { filter: drop-shadow(0 0 75px rgba(188, 193, 205, 0.55)); }
-    }
-    .glitch-layer { opacity: 0; pointer-events: none; }
-    .glitch-layer--r { animation: glitch-r 2.8s infinite; }
-    .glitch-layer--c { animation: glitch-c 3.7s infinite; }
-    @keyframes glitch-r {
-      0%, 28.9%, 32.1%, 90.9%, 93.1%, 100% { opacity: 0; transform: translate(0, 0) skewX(0); clip-path: inset(0 0 0 0); }
-      29% { opacity: 1; transform: translate(-12px, 4px) skewX(-2deg); clip-path: inset(5% 0 70% 0); }
-      30% { opacity: 1; transform: translate(11px, -3px); clip-path: inset(60% 0 10% 0); }
-      31% { opacity: 1; transform: translate(-7px, 2px) skewX(2deg); clip-path: inset(25% 0 50% 0); }
-      32% { opacity: 1; transform: translate(6px, 0); clip-path: inset(75% 0 5% 0); }
-      91% { opacity: 1; transform: translate(-11px, 3px); clip-path: inset(12% 0 62% 0); }
-      92% { opacity: 1; transform: translate(10px, -3px) skewX(-2deg); clip-path: inset(55% 0 10% 0); }
-      93% { opacity: 1; transform: translate(-7px, 1px); clip-path: inset(35% 0 40% 0); }
-    }
-    @keyframes glitch-c {
-      0%, 43.9%, 47.1%, 88.9%, 91.1%, 100% { opacity: 0; transform: translate(0, 0) skewX(0); clip-path: inset(0 0 0 0); }
-      44% { opacity: 1; transform: translate(11px, 3px); clip-path: inset(68% 0 6% 0); }
-      45% { opacity: 1; transform: translate(-11px, -3px) skewX(2deg); clip-path: inset(6% 0 72% 0); }
-      46% { opacity: 1; transform: translate(7px, 0); clip-path: inset(45% 0 30% 0); }
-      47% { opacity: 1; transform: translate(-6px, 3px); clip-path: inset(20% 0 58% 0); }
-      89% { opacity: 1; transform: translate(10px, 2px) skewX(-2deg); clip-path: inset(62% 0 8% 0); }
-      90% { opacity: 1; transform: translate(-10px, -3px); clip-path: inset(8% 0 70% 0); }
-      91% { opacity: 1; transform: translate(6px, 1px); clip-path: inset(40% 0 35% 0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-svg, .glitch-layer { animation: none; }
-    }
-  </style>
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#090d16" />
+  
+  <link rel="canonical" href="https://hexacore.com.ar/" />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
+
 <body>
-  <svg class="hero-svg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hexacore">
-    <circle cx="225" cy="225" r="180" fill="#0e1728" />
-    <image href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" />
-    <image class="glitch-layer glitch-layer--r" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchR)" aria-hidden="true" />
-    <image class="glitch-layer glitch-layer--c" href="./img/logo.svg" x="67.5" y="67.5" width="315" height="315" filter="url(#glitchC)" aria-hidden="true" />
-    <defs>
-      <filter id="glitchR" x="-20%" y="-20%" width="140%" height="140%">
-        <feFlood flood-color="#ff2a2a" result="f" />
-        <feComposite in="f" in2="SourceGraphic" operator="in" />
-      </filter>
-      <filter id="glitchC" x="-20%" y="-20%" width="140%" height="140%">
-        <feFlood flood-color="#00e5ff" result="f" />
-        <feComposite in="f" in2="SourceGraphic" operator="in" />
-      </filter>
-    </defs>
-  </svg>
-  <script>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var layers = Array.prototype.slice.call(document.querySelectorAll('.glitch-layer'));
-      function retime() {
-        layers.forEach(function (layer) {
-          layer.style.animationDuration = (0.9 + Math.random() * 3).toFixed(2) + 's';
-          layer.style.animationDelay = (-Math.random() * 4).toFixed(2) + 's';
-        });
-        setTimeout(retime, 1500 + Math.random() * 2500);
-      }
-      retime();
-    })();
-  </script>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  
+  <div class="blob-field" aria-hidden="true">
+    <div class="blob-bg blob-bg--1"></div>
+    <div class="blob-bg blob-bg--2"></div>
+    <div class="blob-bg blob-bg--3"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <img src="./img/logo.svg" alt="Hexacore Logo" class="brand__logo" />
+        <span class="brand__text-wrap">
+          <span class="brand__text">HEXACORE</span>
+          <span class="brand__tagline" aria-label="Soporte Técnico"><span aria-hidden="true">S</span><span aria-hidden="true">o</span><span aria-hidden="true">p</span><span aria-hidden="true">o</span><span aria-hidden="true">r</span><span aria-hidden="true">t</span><span aria-hidden="true">e</span><span aria-hidden="true" class="brand__tagline-sp"></span><span aria-hidden="true">T</span><span aria-hidden="true">é</span><span aria-hidden="true">c</span><span aria-hidden="true">n</span><span aria-hidden="true">i</span><span aria-hidden="true">c</span><span aria-hidden="true">o</span></span>
+        </span>
+      </a>
+
+      <nav id="primary-nav" class="nav" aria-label="Navegación principal">
+        <div class="nav-indicator" aria-hidden="true"></div>
+        <a href="#inicio" class="nav__link is-active">Inicio</a>
+        <a href="#nosotros" class="nav__link">Nosotros</a>
+        <div class="nav__item nav__item--has-submenu">
+          <a href="#servicios" class="nav__link" id="servicios-link">Servicios</a>
+          <div class="nav__submenu" id="servicios-submenu">
+            <a href="#servicio-soporte" class="nav__submenu-link">Soporte de PC</a>
+            <a href="#servicio-servidores" class="nav__submenu-link">Soporte de Servidores</a>
+            <a href="#servicio-infraestructura" class="nav__submenu-link">Infraestructura</a>
+            <a href="#servicio-seguridad" class="nav__submenu-link">Seguridad Informática</a>
+            <a href="#servicio-ia" class="nav__submenu-link">Implementación IA</a>
+            <a href="#servicio-redes" class="nav__submenu-link">Marketing Digital</a>
+          </div>
+        </div>
+        <a href="#faq" class="nav__link">Preguntas</a>
+        <a href="#clientes" class="nav__link">Clientes</a>
+        <a href="#contacto" class="nav__link">Contacto</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <a class="theme-toggle" href="https://api.whatsapp.com/send?phone=5491123923138" target="_blank"
+          rel="noopener noreferrer" aria-label="Escribinos por WhatsApp">
+          <span class="theme-toggle__icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display: block;">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z">
+              </path>
+            </svg>
+          </span>
+          <span class="theme-toggle__text">WhatsApp</span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Menu principal" aria-expanded="false"
+          aria-controls="primary-nav">
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-shell">
+    
+    <section id="inicio" class="hero-section">
+      <canvas class="pixel-bg" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Bienvenidos a Hexacore</h1>
+          <p class="hero-subdescription">Con más de 25 años de experiencia en el sector, somos el socio tecnológico de confianza para organizaciones que buscan optimizar sus procesos y modernizar su infraestructura.</p>
+          <p class="hero-subdescription">Infraestructura, Seguridad Informática,  y Soporte Técnico especializado, con soluciones personalizadas según objetivos y presupuesto.</p>
+          <div class="hero-cta">
+            <a class="button button--primary" href="#contacto">Contactanos</a>
+            <a class="button button--ghost" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-container">
+            <svg class="hero-svg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="logo-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="-8" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+                </filter>
+              </defs>
+              <g class="g-grid" stroke="var(--border)" stroke-width="1" opacity="0.6">
+                <path
+                  d="M50 0V500M150 0V500M250 0V500M350 0V500M450 0V500M0 50H500M0 150H500M0 250H500M0 350H500M0 450H500" />
+              </g>
+              
+
+              
+              <!-- <circle cx="225" cy="225" r="180" fill="url(#discFade)"
+                class="glow-node" /> -->
+              
+              <image href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#logo-shadow)" />
+              <image class="glitch-layer glitch-layer--r" href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#glitchR)" aria-hidden="true" />
+              <image class="glitch-layer glitch-layer--c" href="./img/logo.svg" x="36" y="36" width="378" height="378" filter="url(#glitchC)" aria-hidden="true" />
+
+              <defs>
+                <radialGradient id="discFade" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#0e1728" stop-opacity="0.5" />
+                  <stop offset="70%" stop-color="#0e1728" stop-opacity="0.45" />
+                  <stop offset="100%" stop-color="#0e1728" stop-opacity="0" />
+                </radialGradient>
+                <filter id="glitchR" x="-20%" y="-20%" width="140%" height="140%">
+                  <feFlood flood-color="#ff2a2a" result="f" />
+                  <feComposite in="f" in2="SourceGraphic" operator="in" />
+                </filter>
+                <filter id="glitchC" x="-20%" y="-20%" width="140%" height="140%">
+                  <feFlood flood-color="#00e5ff" result="f" />
+                  <feComposite in="f" in2="SourceGraphic" operator="in" />
+                </filter>
+                <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--brand)" stop-opacity="0.8" />
+                  <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.2" />
+                </linearGradient>
+                <linearGradient id="circleGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="var(--brand-light)" stop-opacity="0.1" />
+                  <stop offset="100%" stop-color="var(--brand)" stop-opacity="0.7" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="nosotros" class="alt-section">
+      <div class="alt-grid">
+        <div class="alt-content">
+          <h2>Soluciones a medida para el hogar y empresas.</h2>
+          <p class="alt-description">En Hexacore entendemos que cada cliente tiene necesidades únicas. Por eso,
+            desarrollamos soluciones personalizadas que se adaptan a sus objetivos y presupuestos
+            .</p>
+          <p class="alt-subdescription"> Estamos en San Martin, Buenos Aires, y atendemos clientes en todo el país, con soporte remoto y presencial.</p>
+
+          <div class="value-bullets">
+            <div class="bullet-item">
+              <span class="bullet-check">✓</span>
+              <span>Transparencia absoluta en cada proceso</span>
+            </div>
+            <div class="bullet-item">
+              <span class="bullet-check">✓</span>
+              <span>Comunicación constante y directa</span>
+            </div>
+            <div class="bullet-item">
+              <span class="bullet-check">✓</span>
+              <span>Entrega de resultados y reportes medibles</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="alt-visual">
+          <div class="team-members-list">
+            
+            <div class="team-member-card">
+              <div class="team-member-avatar-wrapper">
+                <span class="team-member-avatar" aria-label="Foto de Nicolás">
+                  <img src="./img/team/nicolas.png" alt="Nicolás" width="96" height="96" loading="lazy" decoding="async" />
+                  <span class="avatar-fallback">N</span>
+                </span>
+              </div>
+              <div class="team-member-body">
+                <div class="team-member-name-role">
+                  <h4>Nicolás</h4>
+                  <span class="member-role-badge">Técnico Especialista</span>
+                </div>
+                <p class="member-bio">Técnico especializado en infraestructura y sistemas con más de 25 años de
+                  experiencia. Encargado de diseñar e implementar soluciones técnicas más
+                  complejas con los más altos estándares de calidad y seguridad.
+                </p>
+              </div>
+            </div>
+
+            
+            <div class="team-member-card">
+              <div class="team-member-avatar-wrapper">
+                <span class="team-member-avatar" aria-label="Foto de Martín">
+                  <img src="./img/team/martin.png" alt="Martín" width="96" height="96" loading="lazy" decoding="async" />
+                  <span class="avatar-fallback">M</span>
+                </span>
+              </div>
+              <div class="team-member-body">
+                <div class="team-member-name-role">
+                  <h4>Martín</h4>
+                  <span class="member-role-badge">Desarrollador SSR</span>
+                </div>
+                <p class="member-bio">Desarrollador SSR con más de 6 años de experiencia en
+                  tecnologías web. Especialista en arquitectura de software,
+                  APIs y optimización de rendimiento.</p>
+              </div>
+            </div>
+
+            
+            <div class="team-member-card">
+              <div class="team-member-avatar-wrapper">
+                <span class="team-member-avatar" aria-label="Foto de Mariana">
+                  <img src="./img/team/mariana.png" alt="Mariana" width="96" height="96" loading="lazy" decoding="async" />
+                  <span class="avatar-fallback">M</span>
+                </span>
+              </div>
+              <div class="team-member-body">
+                <div class="team-member-name-role">
+                  <h4>Mariana</h4>
+                  <span class="member-role-badge">Community Manager</span>
+                </div>
+                <p class="member-bio">Encargada de gestionar redes sociales y comunicación digital para
+                  nuestros clientes: crea contenido que conecta con tu audiencia y potencia tu presencia online.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="servicios" class="services-section">
+      <div class="section-header">
+        <h2>Nuestros Servicios</h2>
+        <p>Consultoría y soporte IT diseñados para sostener las operaciones críticas de tu
+          negocio sin interrupciones.</p>
+      </div>
+
+      <div class="services-grid services-grid--six">
+        
+        <div class="service-card" id="servicio-soporte">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+              <line x1="7" y1="2" x2="7" y2="22"></line>
+              <line x1="17" y1="2" x2="17" y2="22"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <line x1="2" y1="7" x2="7" y2="7"></line>
+              <line x1="2" y1="17" x2="7" y2="17"></line>
+              <line x1="17" y1="17" x2="22" y2="17"></line>
+              <line x1="17" y1="7" x2="22" y2="7"></line>
+            </svg>
+          </div>
+          <h3>Soporte Técnico de PC</h3>
+          <div class="service-card__expanded-info">
+            <p>Para computadoras de uso hogareño y empresarial.</p>
+            <ul class="service-bullets">
+              <li>Reparación y mantenimiento de PC y notebooks.</li>
+              <li>Instalación y configuración de Sistemas Operativos y programas.</li>
+              <li>Limpieza de virus, optimización y respaldo de datos.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-servidores">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3>Soporte de Servidores</h3>
+          <div class="service-card__expanded-info">
+            <p>Administración y optimización de servidores físicos y virtuales.</p>
+            <ul class="service-bullets">
+              <li>Configuración, Hardening y mantenimiento proactivo.</li>
+              <li>Virtualización y gestión de contenedores.</li>
+              <li>Monitoreo de recursos y capacidad operativa.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-infraestructura">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3>Infraestructura</h3>
+          <div class="service-card__expanded-info">
+            <p>Diseño, implementación y administración de plataformas para operaciones críticas.</p>
+            <ul class="service-bullets">
+              <li>Implementación de sistemas ERP.</li>
+              <li>Redes LAN/WAN, VLAN y QoS.</li>
+              <li>WiFi corporativo y VPN.</li>
+              <li class="iso-term">
+                <span class="iso-term__label" tabindex="0" aria-describedby="iso-popover">Norma de trabajo ISO 27001</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-seguridad">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Seguridad Informática</h3>
+          <div class="service-card__expanded-info">
+            <p>Fortalecimiento de seguridad para reducción de riesgos reales.</p>
+            <ul class="service-bullets">
+              <li>Vulnerabilidades y pentesting orientado al negocio.</li>
+              <li>Zero Trust y gestión de identidades.</li>
+              <li>Antivirus y protección para empresas y el hogar.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-ia">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+              <path d="M8 14a4 4 0 0 1 8 0"></path>
+            </svg>
+          </div>
+          <h3>Implementación IA</h3>
+          <div class="service-card__expanded-info">
+            <p>Integración de inteligencia artificial en tus procesos y productos.</p>
+            <ul class="service-bullets">
+              <li>Automatización con LLMs y agentes autónomos.</li>
+              <li>Análisis de datos y escenarios críticos.</li>
+              <li>MLOps, RAG, Embeddings y Fine-Tuning.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <div class="service-card" id="servicio-redes">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+              <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+              <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+              <path d="M12 8v8M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+            </svg>
+          </div>
+          <h3>Marketing Digital</h3>
+          <div class="service-card__expanded-info">
+            <p>Estrategia y contenido para tu presencia online.</p>
+            <ul class="service-bullets">
+              <li>Gestión de redes sociales y comunicación digital.</li>
+              <li>Diseño y mantenimiento del sitio web de tu empresa.</li>
+              <li>Campañas de publicidad digital y análisis de resultados.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="faq" class="faq-section" aria-labelledby="faq-title">
+      <div class="faq-inner">
+
+        <div class="faq-intro">
+          <h2 id="faq-title">Lo que nos preguntan antes de empezar</h2>
+          <p>Respuestas rápidas sobre cómo trabajamos, qué incluye el soporte y cómo se coordina el servicio.</p>
+
+          <a class="button button--primary" href="#contacto">Hacer una consulta</a>
+        </div>
+
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary>
+              ¿Cómo empezamos?
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              Nos escribís por el formulario o WhatsApp y coordinamos una llamada breve para entender tu situación.
+              Después hacemos un diagnóstico inicial y te presentamos una propuesta con alcance y costos. Si no te
+              sirve, no hay compromiso.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Atienden solo en CABA y GBA o cubren otras zonas?
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              El soporte remoto lo damos a todo el país. Las visitas presenciales las coordinamos según la zona y la
+              urgencia; si estás fuera de nuestra cobertura habitual, te lo decimos antes de cotizar para que no haya
+              sorpresas.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Cómo funciona el soporte remoto? ¿Es seguro?
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              Usamos herramientas de acceso remoto cifradas y <strong>siempre con tu autorización</strong>. La sesión
+              queda registrada y podés ver en pantalla lo que hacemos en todo momento. Nunca accedemos a un equipo sin
+              que alguien de tu empresa lo habilite.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Qué incluye un plan de soporte?
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              Depende de lo que necesites, pero en general incluye atención a usuarios, mantenimiento de equipos y
+              servidores, actualizaciones, control de copias de seguridad y monitoreo. Al inicio hacemos un relevamiento
+              y te proponemos un alcance concreto, sin paquetes cerrados que no se ajusten a tu empresa.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Qué pasa si tenemos una urgencia fuera del horario?
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              Para clientes con plan mensual ofrecemos un canal prioritario y tiempos de respuesta acordados según la
+              criticidad. Si la urgencia es fuera de horario, se coordina según el nivel de servicio contratado. Antes
+              de empezar te queda claro qué cubre tu plan y qué no.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="clientes" class="clients-section">
+      <div class="clients-inner">
+        <div class="section-header">
+          <h2>Nuestros Clientes</h2>
+          <p>Algunas de las empresas que confían en nosotros.</p>
+        </div>
+
+        
+        <div class="clients-card">
+          <div class="clients-track">
+            <div class="client-logo">
+              <img width="914" height="990" class="no-invert" src="./img/clientes/isaga.png" alt="Isaga" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo">
+              <img width="418" height="290" class="no-invert" src="./img/clientes/deisel.png" alt="Deisel" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--sm">
+              <img width="878" height="350" class="no-invert" src="./img/clientes/engler.png" alt="Engler Rectificación" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--md">
+              <img width="1244" height="788" class="no-invert logo-round" src="./img/clientes/reyarturo.png" alt="Rey Arturo" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--xs">
+              <img width="490" height="200" class="no-invert" src="./img/clientes/crovara.png" alt="Rulemanes Crovara" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--sm">
+              <img width="1416" height="524" class="no-invert" src="./img/clientes/inplaca.png" alt="Inplaca" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--md">
+              <img width="886" height="619" class="no-invert logo-round" src="./img/clientes/stellium.png" alt="Stellium Tienda Esotérica" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--lg">
+              <img width="1000" height="1000" class="no-invert" src="./img/clientes/noi.png" alt="NOI Revestimientos" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo" aria-hidden="true">
+              <img width="914" height="990" class="no-invert" src="./img/clientes/isaga.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo" aria-hidden="true">
+              <img width="418" height="290" class="no-invert" src="./img/clientes/deisel.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--sm" aria-hidden="true">
+              <img width="878" height="350" class="no-invert" src="./img/clientes/engler.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--md" aria-hidden="true">
+              <img width="1244" height="788" class="no-invert logo-round" src="./img/clientes/reyarturo.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--xs" aria-hidden="true">
+              <img width="490" height="200" class="no-invert" src="./img/clientes/crovara.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--sm" aria-hidden="true">
+              <img width="1416" height="524" class="no-invert" src="./img/clientes/inplaca.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--md" aria-hidden="true">
+              <img width="886" height="619" class="no-invert logo-round" src="./img/clientes/stellium.png" alt="" loading="eager" decoding="async" />
+            </div>
+            <div class="client-logo client-logo--lg" aria-hidden="true">
+              <img width="1000" height="1000" class="no-invert" src="./img/clientes/noi.png" alt="" loading="eager" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="contacto" class="cta-section">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Contactanos</h2>
+          <p class="contact-subtitle">Elegí el servicio, contactanos y coordinamos una llamada.</p>
+
+          <div class="contact-grid-outer">
+            
+            <div class="contact-details-grid">
+              <form class="contact-form quiz-form" id="contact-form" novalidate aria-label="Consulta en 3 pasos">
+                <p class="quiz-progress" aria-live="polite"><span id="quiz-step-label">Paso 1 de 3</span></p>
+                <ol class="quiz-dots" aria-hidden="true">
+                  <li class="is-current" data-step-dot="1"></li>
+                  <li data-step-dot="2"></li>
+                  <li data-step-dot="3"></li>
+                </ol>
+
+                <div class="form-step is-active" data-step="1">
+                  <h3 class="quiz-question">¿Qué necesitás?</h3>
+                  <div class="quiz-options" role="radiogroup" aria-label="Servicio">
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Soporte PC" /><span>Soporte PC</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Servidores" /><span>Servidores</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Infraestructura" /><span>Infraestructura</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Seguridad" /><span>Seguridad</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Redes" /><span>Redes</span></label>
+                    <label class="quiz-option"><input type="radio" name="servicio" value="Implementación IA" /><span>Implementación IA</span></label>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="2" hidden>
+                  <h3 class="quiz-question">¿De cuántos equipos hablamos?</h3>
+                  <div class="quiz-options" role="radiogroup" aria-label="Tamaño">
+                    <label class="quiz-option"><input type="radio" name="tamano" value="1 a 10" /><span>1 a 10</span></label>
+                    <label class="quiz-option"><input type="radio" name="tamano" value="11 a 50" /><span>11 a 50</span></label>
+                    <label class="quiz-option"><input type="radio" name="tamano" value="Más de 50" /><span>Más de 50</span></label>
+                  </div>
+                  <button class="quiz-back" type="button" data-back>Atrás</button>
+                </div>
+
+                <div class="form-step" data-step="3" hidden>
+                  <h3 class="quiz-question">¿Cómo te contactamos?</h3>
+                  <div class="form-field">
+                    <label for="f-tel">WhatsApp</label>
+                    <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="11 2345-6789" />
+                  </div>
+                  <div class="form-field">
+                    <label for="f-email">Email</label>
+                    <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="tu@empresa.com" />
+                  </div>
+                  <p class="form-error" id="form-error" role="alert" hidden></p>
+                  <label class="quiz-consent">
+                    <input type="checkbox" id="f-consent" name="consentimiento" />
+                    <span>Al enviar, aceptás que usemos tus datos solo para contactarte.</span>
+                  </label>
+                  <button class="button button--primary button--full" type="submit" id="form-submit">Enviar</button>
+                  <button class="quiz-back" type="button" data-back>Atrás</button>
+                </div>
+
+                <div class="form-step" data-step="4" hidden>
+                  <div class="quiz-success">
+                    <span class="quiz-success__icon" aria-hidden="true">✓</span>
+                    <h3 class="quiz-question">¡Enviado!</h3>
+                    <p>Te contactamos a la brevedad.</p>
+                  </div>
+                </div>
+              </form>
+
+              <div class="contact-map-wrapper">
+                <div class="map-placeholder" id="map-placeholder">
+                  <p>Mapa de ubicación — Buenos Aires</p>
+                  <button class="button button--primary" type="button" id="map-load-btn">Cargar mapa</button>
+                </div>
+                <iframe id="contact-map" data-src="https://maps.google.com/maps?q=Murature%204381%2C%20Villa%20Lynch%2C%20Buenos%20Aires&z=16&output=embed" title="Ubicación de Hexacore en Murature 4381, San Martin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+              </div>
+            </div>
+
+            <div class="form-feedback hide" id="form-feedback" role="status">
+              <span class="form-feedback__icon" aria-hidden="true">✓</span>
+              <p class="form-feedback__text" id="form-feedback-text">¡Gracias! Tu consulta está lista. Elegí cómo enviarla:</p>
+            </div>
+            <div class="form-send-options hide" id="form-send-options">
+              <a class="button button--primary" id="send-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Enviar por WhatsApp</a>
+              <a class="button button--ghost" id="send-email" href="#">Enviar por Email</a>
+            </div>
+
+            <div class="contact-info-strip">
+              <div class="info-card">
+                <div class="info-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h5>Dirección</h5>
+                  <p>Murature 4381, San Martin</p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h5>WhatsApp</h5>
+                  <p><a href="tel:+5491123923138">+54 9 11 2392-3138</a></p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h5>Email</h5>
+                  <p><a href="mailto:soporte@hexacore.com.ar">soporte@hexacore.com.ar</a></p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h5>Horarios</h5>
+                  <p>Lun a Vie: 9:00 - 18:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottombar">
+    <div class="bottombar__inner">
+      <div class="text">&copy; <span id="current-year">2026</span> Hexacore | Diseño web
+      </div>
+      <div class="icons">
+        <a href="mailto:soporte@hexacore.com.ar" class="mail" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=5491123923138" target="_blank" rel="noopener noreferrer"
+          class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/hexacore.it/" target="_blank" rel="noopener noreferrer" class="instagram"
+          aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/hexacore.it" target="_blank" rel="noopener noreferrer" class="facebook"
+          aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="iso-popover" id="iso-popover" role="tooltip">
+    <h4 class="iso-popover__title">¿Cómo se aplica a tu empresa?</h4>
+    <ol class="iso-popover__list">
+      <li>Control de accesos: Cada empleado accede solamente a los sistemas que necesita.</li>
+      <li>Contraseñas y autenticación: Proteger las cuentas y los accesos.</li>
+      <li>Copias de seguridad: Tener backups para recuperar información ante un incidente.</li>
+      <li>Gestión de incidentes: Establecer qué hacer ante un ataque informático o una filtración de datos.</li>
+      <li>Actualizaciones: Mantener los sistemas protegidos y corregir vulnerabilidades.</li>
+      <li>Capacitación: Capacitar a los empleados para reconocer amenazas como el phishing.</li>
+      <li>Auditorías: Revisar periódicamente que las medidas de seguridad realmente se cumplan.</li>
+    </ol>
+  </div>
+
+  <script src="./js/script.js"></script>
 </body>
+
 </html>
